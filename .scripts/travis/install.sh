@@ -8,7 +8,6 @@ elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   brew update &> /dev/null
   brew cask uninstall --force oclint
   brew uninstall --force --ignore-dependencies boost
-  brew upgrade python
   brew install gcc
   brew install pipenv
 fi

@@ -1,6 +1,21 @@
 language: cpp
+
 sudo: false
+
 dist: xenial
+
+python:
+  - 3.7
+  - 3.6
+  - 3.5
+  - 3.4
+
+cache:
+  timeout: 1000
+  pip: true
+  directories:
+    - $HOME/Library/Caches/Homebrew
+
 matrix:
   fast_finish: true
   include:
@@ -15,21 +30,6 @@ matrix:
             - python3.5-dev
     - os: osx
 
-cache:
-  timeout: 1000
-  pip: true
-  directories:
-    - $HOME/Library/Caches/Homebrew
-
-env:
-  global:
-    - LC_ALL="en_US.UTF-8"
-    - LANG="en_US.UTF-8"
-    - LANGUAGE="en_US.UTF-8"
-    - PYTHONIOENCODING=UTF-8
-    # Invalidate PYENV_ROOT
-    - PYENV_ROOT=$HOME/fuffa
-
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       export PYTHON3="/usr/bin/python3.5";
@@ -39,7 +39,7 @@ before_install:
 
 install:
   - ./.scripts/travis/install.sh
-  - pipenv install --python $PYTHON3
+  - pipenv install --three
   - pipenv run python --version
 
 before_script:
