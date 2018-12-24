@@ -4,11 +4,6 @@ sudo: false
 
 dist: xenial
 
-python:
-  - 3.7
-  - 3.6
-  - 3.5
-  - 3.4
 
 cache:
   timeout: 1000
@@ -20,22 +15,23 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      addons: &1
+      python:
+        - 3.7
+        - 3.6
+        - 3.5
+        - 3.4
+      addons:
         apt:
           packages:
             - cmake
             - g++
             - gcc
-            - libpython3.5-dev
-            - python3.5-dev
     - os: osx
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      export PYTHON3="/usr/bin/python3.5";
-    else
-      export PYTHON3="/usr/local/bin/python3";
-    fi
+      python:
+        - 3.7
+        - 3.6
+        - 3.5
+        - 3.4
 
 install:
   - ./.scripts/travis/install.sh
