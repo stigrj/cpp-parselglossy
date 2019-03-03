@@ -31,13 +31,8 @@ install:
   - pipenv run python --version
 
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      test -n $CC && unset CC && export CC=gcc;
-      test -n $CXX && unset CXX && export CXX=g++;
-    else
-      test -n $CC && unset CC && export CC=gcc;
-      test -n $CXX && unset CXX && export CXX=g++;
-    fi
+  - test -n $CC && unset CC && export CC=gcc;
+  - test -n $CXX && unset CXX && export CXX=g++;
 
 script:
   - cmake -H. -Bbuild
