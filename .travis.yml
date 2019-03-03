@@ -33,6 +33,7 @@ before_script:
 
 script:
   - export PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
-  - cmake -H"$WHICH" -Bbuild
+  - cd "$WHICH"
+  - cmake -H. -Bbuild
   - cmake --build build -- VERBOSE=1
   # Testing
