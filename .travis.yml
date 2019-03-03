@@ -13,6 +13,8 @@ cache:
 env:
   - WHICH=externalproject
   - WHICH=fetchcontent
+
+env:
   global:
     - PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
 
