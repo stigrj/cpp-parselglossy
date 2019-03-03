@@ -10,10 +10,6 @@ cache:
   directories:
     - $HOME/Library/Caches/Homebrew
 
-env:
-  - WHICH=externalproject
-  - WHICH=fetchcontent
-
 matrix:
   fast_finish: true
   include:
@@ -23,7 +19,13 @@ matrix:
           packages:
             - g++
             - gcc
+      env:
+        - WHICH=externalproject
+        - WHICH=fetchcontent
     - os: osx
+      env:
+        - WHICH=externalproject
+        - WHICH=fetchcontent
 
 install:
   - ./.scripts/travis/install.sh
