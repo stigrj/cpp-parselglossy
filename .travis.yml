@@ -10,22 +10,16 @@ cache:
   directories:
     - $HOME/Library/Caches/Homebrew
 
+env:
+  - WHICH=externalproject
+  - WHICH=fetchcontent
+
+os:
+  - linux
+  - osx
+
 matrix:
   fast_finish: true
-  include:
-    - os: linux
-      addons:
-        apt:
-          packages:
-            - g++
-            - gcc
-      env:
-        - WHICH=externalproject
-        - WHICH=fetchcontent
-    - os: osx
-      env:
-        - WHICH=externalproject
-        - WHICH=fetchcontent
 
 install:
   - ./.scripts/travis/install.sh
@@ -35,6 +29,7 @@ install:
 before_script:
   - test -n $CC && unset CC && export CC=gcc;
   - test -n $CXX && unset CXX && export CXX=g++;
+  - cmake --version
 
 script:
   - export PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
