@@ -13,6 +13,10 @@ cache:
   directories:
     - $HOME/Library/Caches/Homebrew
 
+env:
+  - WHICH=externalproject
+  - WHICH=fetchcontent
+
 matrix:
   fast_finish: true
   include:
@@ -35,6 +39,6 @@ before_script:
   - test -n $CXX && unset CXX && export CXX=g++;
 
 script:
-  - cmake -H. -Bbuild
+  - cmake -H"$WHICH" -Bbuild
   - cmake --build build -- VERBOSE=1
   # Testing
