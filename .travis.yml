@@ -18,11 +18,21 @@ os:
   - linux
   - osx
 
+addons:
+  homebrew:
+    packages:
+      - gcc
+      - cmake
+      - pipenv
+    update: true
+
 matrix:
   fast_finish: true
 
-install:
+before_install:
   - ./.scripts/travis/install.sh
+
+install:
   - pipenv install --three
   - pipenv run python --version
 
