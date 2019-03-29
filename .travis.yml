@@ -47,4 +47,4 @@ script:
   - cmake -H. -Bbuild
   - cmake --build build -- VERBOSE=1
   - cd build
-  - ctest --output-on-failure --verbose
+  - pipenv run ctest --output-on-failure --verbose
