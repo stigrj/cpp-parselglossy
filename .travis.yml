@@ -46,4 +46,5 @@ script:
   - cd "$WHICH"
   - cmake -H. -Bbuild
   - cmake --build build -- VERBOSE=1
-  # Testing
+  - cd build
+  - ctest --output-on-failure --verbose
