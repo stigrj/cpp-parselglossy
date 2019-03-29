@@ -13,7 +13,7 @@ void throw_darts(const json &input, json &output);
 int main(int argc, char **argv) {
     // Read JSON input
     json inp_json;
-    if (fetch_input(argc, argv, inp_json)) return 1;
+    if (fetch_input(argc, argv, inp_json)) return EXIT_FAILURE;
 
     // Prepare JSON output
     json out_json;
@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
     std::cout << out_json.dump(2) << std::endl;
     std::cout << "-------------------------------------------\n\n";
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 int fetch_input(int argc, char **argv, json &input) {
