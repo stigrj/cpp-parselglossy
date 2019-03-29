@@ -38,7 +38,7 @@ sections:
         type: int
         default: 0
         predicates:
-          - 'value > 0'
+          - 'value >= 0'
           - 'value < 2**32'
         docstring: |
           Number used as seed in the pseudo-random number generator.
