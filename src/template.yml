@@ -1,0 +1,44 @@
+keywords:
+  - name: title
+    type: str
+    docstring: |
+      Please provide a title of the calculation to display in the beginning.
+  - name: method
+    type: str
+    predicates:
+      - "value == 'integration' or value == 'darts'"
+    docstring: |
+      Choose which method to use, numerical integration or throwing darts.
+sections:
+  - name: Integration
+    docstring: |
+      Section giving details on the numerical integration method.
+    keywords:
+      - name: n_steps
+        type: int
+        default: 1000
+        predicates:
+          - 'value > 0'
+          - 'value < 1000000'
+        docstring: |
+          Number of intervals in the numerical integration. Larger number means higher accuracy.
+  - name: Darts
+    docstring: |
+      Section giving details on the dart throwing method.
+    keywords:
+      - name: n_darts
+        type: int
+        default: 1000
+        predicates:
+          - 'value > 0'
+          - 'value < 1000000'
+        docstring: |
+          Number of darts to throw. Larger number means higher accuracy.
+      - name: random_seed
+        type: int
+        default: 0
+        predicates:
+          - 'value > 0'
+          - 'value < 2**32'
+        docstring: |
+          Number used as seed in the pseudo-random number generator.

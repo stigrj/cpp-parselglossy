@@ -55,3 +55,23 @@ install(
     COMPONENT bin
   )
 
+set(PI_EXECUTABLE ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/pi.x)
+# configure into CMakeFiles directory, because it must be in a different
+# directory since file(COPY) does rename files
+configure_file(pi.in ${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/pi @ONLY)
+# now copy the temporary into the final destination, setting the permissions
+file(
+  COPY ${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/pi
+  DESTINATION ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}
+  FILE_PERMISSIONS
+    OWNER_READ OWNER_WRITE OWNER_EXECUTE
+    GROUP_READ GROUP_EXECUTE
+    WORLD_READ WORLD_EXECUTE
+  )
+
+install(
+  PROGRAMS
+    ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/pi
+  DESTINATION
+    ${CMAKE_INSTALL_BINDIR}
+  )
