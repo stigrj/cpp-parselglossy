@@ -45,6 +45,6 @@ script:
   - export PATH=$HOME/Deps/cmake/$CMAKE_VERSION/bin${PATH:+:$PATH}
   - cd "$WHICH"
   - cmake -H. -Bbuild
-  - cmake --build build -- VERBOSE=1
+  - cmake --build build --target install -- VERBOSE=1
   - cd build
   - pipenv run ctest --output-on-failure --verbose
