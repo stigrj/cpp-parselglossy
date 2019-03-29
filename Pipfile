@@ -6,3 +6,4 @@ verify_ssl = true
 
 [packages]
 parselglossy = {git='https://github.com/dev-cafe/parselglossy.git'}
+runtest = "*"
