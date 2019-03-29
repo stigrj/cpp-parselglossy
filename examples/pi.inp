@@ -1,0 +1,12 @@
+title = "This program computes pi"
+method = integration
+
+Integration {
+  n_steps = 100000
+}
+
+Darts {
+  n_darts = 100000
+  random_seed = 225512
+}
+
