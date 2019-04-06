@@ -68,6 +68,10 @@ ExternalProject_Add(${PROJECT_NAME}_core
     1
   )
 
+enable_testing()
+include(CTest)
+add_subdirectory(tests)
+
 # this one mimicks using DESTDIR
 install(
   DIRECTORY

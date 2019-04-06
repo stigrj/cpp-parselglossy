@@ -1,6 +1,8 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
+#include <random>
 
 #include "nlohmann/json.hpp"
 
@@ -81,13 +83,14 @@ void throw_darts(const json &input, json &output) {
     auto seed = input["random_seed"].get<int>();
 
     // Seed the random number generator
-    std::srand(seed);
+    std::mt19937 rand_en(seed);
+    std::uniform_real_distribution<> uniform_dist(0.0, 1.0);
 
     auto n_hits = 0;
     for (auto i = 0; i < n_darts; i++) {
         //creates 2 random numbers between 0 and 1
-        auto x = static_cast<double>(rand()) / static_cast<double>(RAND_MAX);
-        auto y = static_cast<double>(rand()) / static_cast<double>(RAND_MAX);
+        auto x = uniform_dist(rand_en);
+        auto y = uniform_dist(rand_en);
         auto r = std::sqrt(x*x + y*y);
 
         //counts how often the dart hits the circle

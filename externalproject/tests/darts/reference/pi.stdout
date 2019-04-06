@@ -1,0 +1,23 @@
+
+-------------- JSON input -----------------
+{
+  "Darts": {
+    "n_darts": 100000,
+    "random_seed": 225512
+  },
+  "Integration": {
+    "n_steps": 1000
+  },
+  "method": "darts",
+  "title": "This program computes Pi"
+}
+-------------------------------------------
+
+-------------- JSON output ----------------
+{
+  "method": "Throwing darts",
+  "pi": 3.14152,
+  "title": "This program computes Pi"
+}
+-------------------------------------------
+

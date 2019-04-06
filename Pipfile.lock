@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d066f82a9a11b88852d45619a62f6ff113e997939c4a55be43674e548dc982fb"
+            "sha256": "3f550e689147d16f12d8b6c631bdc52a106b6f9f84f40a581c3a6858b767354e"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -15,7 +15,13 @@
     "default": {
         "parselglossy": {
             "git": "https://github.com/dev-cafe/parselglossy.git",
-            "ref": "2f44a752742a9156398fd7f6a291c52789aeda4d"
+            "ref": "9337ab2555b7a91fbd6e3c39ad579ba06cbb5672"
+        },
+        "runtest": {
+            "hashes": [
+                "sha256:ab67c2c66d5ba5446067037a8e80b093feedc6cb25402537fbcb619fad7c8fb3"
+            ],
+            "version": "==2.2.0"
         }
     },
     "develop": {}
