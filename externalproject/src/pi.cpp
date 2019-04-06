@@ -83,15 +83,14 @@ void throw_darts(const json &input, json &output) {
     auto seed = input["random_seed"].get<int>();
 
     // Seed the random number generator
-    static int rand_max = 32767;
-    std::default_random_engine rand_en(seed);
-    std::uniform_int_distribution<int> uniform_dist(0, rand_max);
+    std::mt19937 rand_en(seed);
+    std::uniform_real_distribution<> uniform_dist(0.0, 1.0);
 
     auto n_hits = 0;
     for (auto i = 0; i < n_darts; i++) {
         //creates 2 random numbers between 0 and 1
-        auto x = static_cast<double>(uniform_dist(rand_en)) / rand_max;
-        auto y = static_cast<double>(uniform_dist(rand_en)) / rand_max;
+        auto x = uniform_dist(rand_en);
+        auto y = uniform_dist(rand_en);
         auto r = std::sqrt(x*x + y*y);
 
         //counts how often the dart hits the circle
