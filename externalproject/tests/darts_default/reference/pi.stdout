@@ -16,7 +16,7 @@
 -------------- JSON output ----------------
 {
   "method": "Throwing darts",
-  "pi": 3.132,
+  "pi": 3.144,
   "title": "This program computes Pi"
 }
 -------------------------------------------
