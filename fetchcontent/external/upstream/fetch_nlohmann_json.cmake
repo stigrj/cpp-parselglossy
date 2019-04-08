@@ -1,6 +1,6 @@
 find_package(nlohmann_json 3.5.0 CONFIG QUIET)
 
-if(TARGET nlohmann_json::nlhomann_json)
+if(TARGET nlohmann_json::nlohmann_json)
   get_target_property(
     _loc
     nlohmann_json::nlohmann_json
