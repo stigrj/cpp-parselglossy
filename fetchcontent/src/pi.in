@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+import optparse
+from pathlib import Path
+
+from parselglossy.api import parse
+
+def main():
+    # Define paths to executable and input template
+    executable = "@PI_EXECUTABLE@"
+    template = "@PROJECT_SOURCE_DIR@/src/template.yml"
+
+    # Get input file from command line
+    inp_file = parse_cmdline()
+    inp_name, ext_ext = os.path.splitext(inp_file)
+
+    # Define paths expected by parselglossy
+    in_path = Path(inp_file)
+    fr_path = Path(inp_name + '.json')
+    tmpl_path = Path(template)
+
+    # run parselglossy (in_file: getkw -> fr_file: JSON)
+    parse(infile=in_path, outfile=fr_path, template=tmpl_path, grammar='getkw')
+
+    # run C++ executable with parsed JSON input
+    cmd = executable + ' ' + str(fr_path)
+    p = subprocess.call(cmd, shell=True)
+
+def parse_cmdline():
+    usage = "usage: %prog inp_file"
+    cmdln = optparse.OptionParser(usage=usage)
+
+    opts, args = cmdln.parse_args()
+
+    if (len(args) == 0):
+        cmdln.error('No input file passed!')
+        sys.exit(0)
+    elif (len(args) == 1):
+        inp_file = args[0]
+    else:
+        cmdln.error('Incorrect number of files')
+        sys.exit(0)
+
+    return inp_file
+
+
+if __name__ == '__main__':
+    main()
