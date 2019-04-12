@@ -1,3 +1,10 @@
+file(
+  COPY
+    pi.inp
+  DESTINATION
+    ${CMAKE_CURRENT_BINARY_DIR}
+  )
+
 add_test(
   NAME
     darts

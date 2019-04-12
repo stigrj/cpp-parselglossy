@@ -2,6 +2,7 @@
 
 import os
 import sys
+import subprocess
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -10,6 +11,21 @@ from runtest_config import configure  # isort:skip
 
 assert version_info.major == 2
 
+in_file = 'pi.inp'
+fr_file = 'pi.json'
+tp_file = '../../../src/template.yml'
+grammar = 'getkw'
+
+# Running parselglossy CLI: pi.inp -> pi.json
+parsel_command = []
+parsel_command.append('parselglossy')
+parsel_command.append('parse')
+parsel_command.append('--outfile=' + fr_file)
+parsel_command.append('--template=' + tp_file)
+parsel_command.append('--grammar=' + grammar)
+parsel_command.append(in_file)
+subprocess.call(parsel_command)
+
 f = [
     get_filter(string='pi', rel_tolerance=1.0e-6),
 ]
@@ -17,6 +33,6 @@ f = [
 options = cli()
 
 ierr = 0
-ierr += run(options, configure, input_files='pi.inp', filters={'stdout': f})
+ierr += run(options, configure, input_files=fr_file, filters={'stdout': f})
 
 sys.exit(ierr)
