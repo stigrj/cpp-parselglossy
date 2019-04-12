@@ -1,3 +1,10 @@
+execute_process(
+  COMMAND
+    cmake -E create_symlink
+    "${PROJECT_SOURCE_DIR}/src/template.yml" # Old name
+    "${CMAKE_CURRENT_BINARY_DIR}/template.yml" # New name
+  )
+
 file(
   COPY
     pi.inp

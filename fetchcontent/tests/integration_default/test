@@ -13,7 +13,7 @@ assert version_info.major == 2
 
 in_file = 'pi.inp'
 fr_file = 'pi.json'
-tp_file = '../../../src/template.yml'
+tp_file = 'template.yml'
 grammar = 'getkw'
 
 # Running parselglossy CLI: pi.inp -> pi.json
