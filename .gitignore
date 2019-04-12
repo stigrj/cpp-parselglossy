@@ -36,3 +36,6 @@
 
 # Development stuff
 .direnv
+
+# Vim
+*.swp
