@@ -1,7 +1,7 @@
 execute_process(
   COMMAND
     cmake -E create_symlink
-    "${PROJECT_SOURCE_DIR}/src/template.yml" # Old name
+    "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}/template.yml" # Old name
     "${CMAKE_CURRENT_BINARY_DIR}/template.yml" # New name
   )
 

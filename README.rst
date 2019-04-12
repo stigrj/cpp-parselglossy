@@ -40,5 +40,5 @@ To run example:
 .. code:: bash
 
     $ cd examples
-    $ parselglossy parse --outfile=throw_darts.json --template=../src/template.yml --grammar=getkw throw_darts.inp
+    $ parselglossy parse --outfile=throw_darts.json --template=../build/share/template.yml --grammar=getkw throw_darts.inp
     $ ../build/bin/pi throw_darts.json

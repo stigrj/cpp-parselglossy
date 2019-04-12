@@ -31,3 +31,18 @@ install(
     COMPONENT bin
   )
 
+
+file(
+  COPY
+    template.yml
+  DESTINATION
+    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}
+  )
+
+install(
+  FILES
+    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}/template.yml
+  DESTINATION
+    ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}
+  )
+
