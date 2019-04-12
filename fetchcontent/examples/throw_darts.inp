@@ -1,0 +1,8 @@
+title = "This program computes Pi"
+method = darts
+
+Darts {
+  n_darts = 10**4
+  random_seed = 1
+}
+

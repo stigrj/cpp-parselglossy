@@ -1,0 +1,7 @@
+title = "This program computes Pi"
+method = integration
+
+Integration {
+  n_steps = 10**4
+}
+
